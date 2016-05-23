@@ -2,8 +2,7 @@
   "name": "angilar-angularfire-firebase-demo",
   "description": "",
   "main": "index.js",
-  "authors": [
-  ],
+  "authors": [],
   "license": "ISC",
   "moduleType": [],
   "homepage": "",
@@ -15,7 +14,8 @@
     "tests"
   ],
   "dependencies": {
-    "angularfire": "1.1.4",
-    "angular-route": "^1.5.5"
+    "angular-route": "^1.5.5",
+    "bootstrap": "^3.3.6",
+    "angularfire": "^1.2.0"
   }
 }

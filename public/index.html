@@ -1,16 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
     <meta charset="UTF-8">
     <title>demo</title>
     <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css">
 </head>
-<body>
+<body class="container">
 
+<ng-view></ng-view>
+<script src="vendor/firebase/firebase.js"></script>
 <script src="vendor/angular/angular.js"></script>
 <script src="vendor/angular-route/angular-route.js"></script>
-<script src="vendor/firebase/firebase.js"></script>
-<script src="vendor/angularfire/dist/angularfire.js"></script>
 
+<script src="vendor/angularfire/dist/angularfire.js"></script>
+<script src="app.js"></script>
+<script src="fbUrl.js"></script>
+<script src="home/home.js"></script>
+<script src="security/login.js"></script>
+<script src="nav/nav.js"></script>
+<script src="logout.js"></script>
 </body>
 </html>

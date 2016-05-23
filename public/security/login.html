@@ -1,0 +1,8 @@
+<h1 ng-hide="$ctrl.loggedIn">login</h1>
+<h1 ng-show="$ctrl.loggedIn">已经登陆</h1>
+<button ng-hide="$ctrl.loggedIn" class="btb  btn-primary" ng-click="$ctrl.fbLogin()">login　with facebook</button>
+<button ng-hide="$ctrl.loggedIn" class="btb  btn-primary" ng-click="$ctrl.anonLogin()">anonLogin</button>
+<br>
+<br>
+
+<div class="alert alert-warning" ng-if="!!$ctrl.errMessage">{{$ctrl.errMessage}}</div>
