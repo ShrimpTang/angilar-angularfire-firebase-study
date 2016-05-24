@@ -17,6 +17,19 @@ angular.module('app', ['firebase', 'ngRoute'])
                     }
                 }
             })
+            .when('/userpref', {
+                template: '<edit-user-pref user-preferences="$resolve.userPreferences"></edit-user-pref>',
+                resolve: {
+
+                    userPreferences: function (fbRef, $firebaseObject,$firebaseAuthService) {
+                        return $firebaseAuthService.$requireAuth().then(function () {
+                            return $firebaseObject(fbRef.getPreferencesRef()).$loaded();
+                        })
+
+                    }
+
+                }
+            })
             .when('/login', {
                 template: '<login current-auth="$resolve.currentAuth"></login>',
                 resolve: {

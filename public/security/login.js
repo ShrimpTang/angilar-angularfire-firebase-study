@@ -5,6 +5,7 @@ angular.module('app')
           currentAuth:'='
         },
         controller: function ($firebaseAuthService, $location) {
+            var vm = this;
             this.loggedIn = !!this.currentAuth;
             this.anonLogin = function () {
                 $firebaseAuthService.$authAnonymously()
@@ -12,9 +13,9 @@ angular.module('app')
                         $location.path('/home');
                     })
                     .catch(function (err) {
-                        this.errMessage = err.code
+                        vm.errMessage = err.code
                     })
-            }.bind(this);
+            }
 
             this.fbLogin = function () {
 
@@ -23,8 +24,8 @@ angular.module('app')
                         $location.path('/home');
                     })
                     .catch(function (err) {
-                        this.errMessage = err.code
+                        vm.errMessage = err.code
                     })
-            }.bind(this);
+            }
         }
     })
