@@ -1,5 +1,10 @@
 angular.module('app')
-    .component('home',{
-        templateUrl:'home/home.html',
-
+    .component('home', {
+        bindings: {
+            expensesInOrder: '='
+        },
+        templateUrl: 'home/home.html',
+        controller: function () {
+            console.log(this.expensesInOrder)
+        }
     })

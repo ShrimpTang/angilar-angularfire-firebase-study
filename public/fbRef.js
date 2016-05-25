@@ -5,6 +5,9 @@ angular.module('app').factory('fbRef', function ($firebaseRef, $firebaseAuthServ
         },
         getCategoryRef: function () {
             return $firebaseRef.default.child('categories');
+        },
+        getExpensesRef: function () {
+            return $firebaseRef.default.child('expenses').child($firebaseAuthService.$getAuth().uid);
         }
     }
 })

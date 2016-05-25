@@ -10,10 +10,12 @@ angular.module('app', ['firebase', 'ngRoute'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/home', {
-                template: '<home></home>',
+                template: '<home expenses-in-order="$resolve.expensesInOrder"></home>',
                 resolve:{
-                    currentAuth: function ($firebaseAuthService) {
-                        return $firebaseAuthService.$requireAuth()
+                    expensesInOrder: function (fbRef,$firebaseAuthService, expenseList) {
+                        return $firebaseAuthService.$requireAuth().then(function () {
+                            return expenseList(fbRef.getExpensesRef().orderByChild("name")).$loaded();
+                        })
                     }
                 }
             })
