@@ -30,6 +30,17 @@ angular.module('app', ['firebase', 'ngRoute'])
 
                 }
             })
+            .when('/categorise',{
+                template:'<category-list categories="$resolve.categorise"></category-list>',
+                resolve:{
+                    categorise: function (fbRef,$firebaseAuthService,$firebaseArray) {
+                        return $firebaseAuthService.$requireAuth().then(function () {
+                            var query = fbRef.getCategoryRef().orderByChild('name');
+                            return $firebaseArray(query).$loaded();
+                        })
+                    }
+                }
+            })
             .when('/login', {
                 template: '<login current-auth="$resolve.currentAuth"></login>',
                 resolve: {
