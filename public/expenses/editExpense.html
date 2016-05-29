@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<form class="form-inline">
+    <input type="text" placeholder="Date" ng-model="$ctrl.date" class="form-control">
+    <input type="text" placeholder="Payee" ng-model="$ctrl.payee" class="form-control">
+    <input type="text" placeholder="Desc" ng-model="$ctrl.desc" class="form-control">
+    <select ng-model="$ctrl.selectedCategory"
+            ng-options="category.name for category in $ctrl.categories track by category.$id"
+            class="form-control"></select>
+    <input type="text" placeholder="Amount" ng-model="$ctrl.amount" class="form-control">
 
-</body>
-</html>
+    <button class="btn btn-primary btn-sm" ng-click="$ctrl.create()">Create</button>
+</form>
