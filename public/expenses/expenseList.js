@@ -5,6 +5,7 @@ angular.module('app').factory('expenseList', function ($firebaseArray) {
                 angular.forEach(this.$list, function (e) {
                     total += e.amount;
                 })
+                return total;
             }
     })
     return function (ref) {

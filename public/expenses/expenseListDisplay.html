@@ -14,7 +14,7 @@
         <td>{{expense.description}}</td>
         <td>{{expense.category.name}}</td>
         <td>{{expense.amount | currency}}</td>
-        <td>&nbsp;</td>
+        <td><span class="glyphicon glyphicon-remove" ng-click="$ctrl.remove(expense)"></span></td>
     </tr>
     </tbody>
 </table>

@@ -3,6 +3,12 @@ angular.module('app')
     templateUrl:'expenses/expenseListDisplay.html',
     bindings:{
         expenses:'='
+    },
+    controller: function () {
+        this.remove = function (e) {
+            this.expenses.$remove(e)
+        }
+
     }
 
 })
