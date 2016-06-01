@@ -10,11 +10,17 @@ angular.module('app', ['firebase', 'ngRoute'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/home', {
-                template: '<home expenses-in-order="$resolve.expensesInOrder"></home>',
+                template: '<home categorise="$resolve.categorise" expenses-in-order="$resolve.expensesInOrder"></home>',
                 resolve:{
                     expensesInOrder: function (fbRef,$firebaseAuthService, expenseList) {
                         return $firebaseAuthService.$requireAuth().then(function () {
                             return expenseList(fbRef.getExpensesRef().orderByChild("name")).$loaded();
+                        })
+                    },
+                    categorise: function (fbRef,$firebaseAuthService,$firebaseArray) {
+                        return $firebaseAuthService.$requireAuth().then(function () {
+                            var query = fbRef.getCategoryRef().orderByChild('name');
+                            return $firebaseArray(query).$loaded();
                         })
                     }
                 }
@@ -22,7 +28,6 @@ angular.module('app', ['firebase', 'ngRoute'])
             .when('/userpref', {
                 template: '<edit-user-pref user-preferences="$resolve.userPreferences"></edit-user-pref>',
                 resolve: {
-
                     userPreferences: function (fbRef, $firebaseObject,$firebaseAuthService) {
                         return $firebaseAuthService.$requireAuth().then(function () {
                             return $firebaseObject(fbRef.getPreferencesRef()).$loaded();
