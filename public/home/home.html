@@ -1,5 +1,5 @@
 <nav></nav>
 <h1>Home！ <small>{{$ctrl.expensesInOrder.getTotal()}}</small></h1>
-<expense-display expenses="$ctrl.expensesInOrder"></expense-display>
+<expense-display select-expense="$ctrl.editExpense(expense)" expenses="$ctrl.expensesInOrder"></expense-display>
 
-<edit-expense categories="$ctrl.categorise"></edit-expense>
+<edit-expense update-expense="$ctrl.updateExpense()" edited-expense="$ctrl.editedExpense" create-new-expense="$ctrl.createExpense(expenseData)" categories="$ctrl.categorise"></edit-expense>

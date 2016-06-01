@@ -7,5 +7,7 @@
             class="form-control"></select>
     <input type="text" placeholder="Amount" ng-model="$ctrl.amount" class="form-control">
 
-    <button class="btn btn-primary btn-sm" ng-click="$ctrl.create()">Create</button>
+    <button class="btn btn-primary btn-sm" ng-click="$ctrl.create()" ng-hide="$ctrl.editing">Create</button>
+    <button class="btn btn-primary btn-sm" ng-click="$ctrl.save()" ng-show="$ctrl.editing">save</button>
+    <button class="btn btn-warning btn-sm" ng-click="$ctrl.cancel()" ng-show="$ctrl.editing">cancel</button>
 </form>
